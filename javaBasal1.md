@@ -6,6 +6,7 @@
 ####java程序运行过程
 javac  Demo01.java--->Demo01.class 字节码文件-->类加载器中-->运行java Demo01
 ####标识符、常量、变量
+
     标识符：字母  数字  _  $ 组成，其中数字不能开头，不能是关键字。
     类名：首字母大写
     变量名和方法名：驼峰命名法  myname  showinfo() addlist()
@@ -15,7 +16,9 @@ javac  Demo01.java--->Demo01.class 字节码文件-->类加载器中-->运行jav
     变量：可以改变
     	 数据类型  变量名 = 值；
 
-   >     final double PI;
+示例：
+  
+    final double PI;
     PI = 3.14;
     //PI = 3.23;  //常量只能赋值一次
     int $c = 100;
@@ -41,14 +44,18 @@ javac  Demo01.java--->Demo01.class 字节码文件-->类加载器中-->运行jav
     //byte b2 = 200;  越界
 
 ####类型转换
+
     数据类型转换：
     		自动类型转换：小--->大
     			byte,short,char-->int-->long-->float-->double
     			char可按照ASCII进行转换：a--》 97   A--》 65  0--》 48  
     		强制类型转换：大--》 小
     			（目标类型）变量
-    			int a = 100;
-    			byte b = (byte)a;
+
+示例：
+
+	int a = 100;
+	byte b = (byte)a;
     byte b = 10;
     int a = 34;
     float f = 4.5f;
@@ -65,7 +72,9 @@ javac  Demo01.java--->Demo01.class 字节码文件-->类加载器中-->运行jav
     	\r\n:回车换行
 
 #### 运算符
+
 - 逻辑运算符: &&(逻辑与)  ||（逻辑或）  !（逻辑非）  &  |^异或
+
 >
     		a&&b（短路）:如果a为false，则结果为false。b将不被判断
     		a&b:如果a为false，结果为false。b会进行判断。a与b都会执行。
@@ -73,23 +82,32 @@ javac  Demo01.java--->Demo01.class 字节码文件-->类加载器中-->运行jav
     		a|b:如果a为true，结果为true。b会进行判断。a与b都会执行。
     		a^b:相同为false，不同为true。
 
-- 条件运算符： 三目运算符  ？ ：
+- 条件运算符： **三目运算符  ？ ：**
+
 >		条件表达式?语句1：语句2； //当表达式为true，结果为语句1，否则为语句2
 
 - 字符串连接符 +
+
 - 位运算符： &(按位与)  |（按位或）  ^（按位异或）   ~（按位取反）  >>（右移）  <<（左移）   >>>（无符号右移）
+
 - 进制转换：
->			十进制---》二进制 : 除2取余  10--》1010
+>			
+			十进制---》二进制 : 除2取余  10--》1010
 			二进制 --》十进制  ：位权 * 符号^(n-1)
 			(1010)二---->（0*2^0+1*2^1+0*2^2+1*2^3） =10
 			八进制---》二进制 
 				1)通过十进制转换
 				2) 773 八--> 111 111 011  二
+示例：
+
+>   
     int a = 4, b =3;
     int c = a++ + ++b + ++a; // c = 4 + 4 + 6
     int d = --b + ++a/2 - b++%2; // d = 3 + 7/2 – 3%2 
     System.out.println("a=" + a + ",b=" + b + ",c=" + c + ",d=" + d);  //a=7; b=4; c=10; d=5
-    
+
+位运算示例：
+
     System.out.println(5&3); //1
     System.out.println(5|3); //7
     System.out.println(5^3);  //6
@@ -139,6 +157,9 @@ javac  Demo01.java--->Demo01.class 字节码文件-->类加载器中-->运行jav
       +11111 1111 1111 1111 1111 1111 1111 0111
     
     */
+
+相关工具：
+
     System.out.println(Integer.toBinaryString(-9));
     Integer.toBinaryString(a) :二进制
     Integer.toHexString(a):十六进制
@@ -152,7 +173,9 @@ javac  Demo01.java--->Demo01.class 字节码文件-->类加载器中-->运行jav
     Integer.valueOf(a+"",8)
     二进制转十进制
     Integer.valueOf(a+"",2)
-    位操作举例：
+
+位操作举例：
+
     System.out.println(6>>2);//6*1/4=1
     System.out.println(6<<2);//6*4=24
     System.out.println("-6>>2="+(-6>>2));//-6*1/4=-2
@@ -161,6 +184,7 @@ javac  Demo01.java--->Demo01.class 字节码文件-->类加载器中-->运行jav
     System.out.println("-6/4="+(-6/4));//-6*1/4=-1
     System.out.println("-1/4="+(-1/4));//-1*1/4=0
     System.out.println("-6>>>2="+(-6>>>2));//21073741822
+
 
 **最有效的方式计算2\*8  = 2 \* 2^3**
 
