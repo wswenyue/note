@@ -1,1 +1,3 @@
-Welcome to the note wiki!
+##这里是我记录学习的笔记
+
+###java语言基本知识
