@@ -167,6 +167,98 @@
     构造代码块3
     Student构造方法
 
+
+这里再看一个例子：
+
+    package Demo;
+    
+    /**
+     * Created by wswenyue 
+     */
+    public class Test1 {
+    public static void main(String[] args) {
+    System.out.println("------------new 子类-------------");
+    new B().f();
+    System.out.println("----------new 父类--------------");
+    new A().f();
+    }
+    }
+    
+    class A {
+    public int a ;
+    static {
+    System.out.println("父类静态代码块1");
+    }
+    public A(){
+    System.out.println("父类无参构造方法");
+    }
+    public A(int a){
+    this.a = a;
+    System.out.println("父类有参参构造方法");
+    }
+    
+    public void f(){
+    {
+    System.out.println("父类方法--普通代码块");
+    }
+    System.out.println("父类方法");
+    }
+    
+    {
+    System.out.println("父类普通代码块");
+    }
+    static {
+    System.out.println("父类静态代码块2");
+    }
+    }
+    
+    class B extends A {
+    public int a ;
+    static {
+    System.out.println("子类静态代码块1");
+    }
+    public B(){
+    System.out.println("子类无参构造方法");
+    }
+    public B(int a){
+    this.a = a;
+    System.out.println("子类有参参构造方法");
+    }
+    
+    public void f(){
+    {
+    System.out.println("子类方法--普通代码块");
+    }
+    System.out.println("子类方法");
+    }
+    
+    {
+    System.out.println("子类普通代码块");
+    }
+    static {
+    System.out.println("子类静态代码块2");
+    }
+    }
+
+执行结果：
+
+    ------------new 子类-------------
+    父类静态代码块1
+    父类静态代码块2
+    子类静态代码块1
+    子类静态代码块2
+    父类普通代码块
+    父类无参构造方法
+    子类普通代码块
+    子类无参构造方法
+    子类方法--普通代码块
+    子类方法
+    ----------new 父类--------------
+    父类普通代码块
+    父类无参构造方法
+    父类方法--普通代码块
+    父类方法
+
 ----
 ####对象初始化过程：
 		1 加载类的字节码文件到jvm的方法区中
