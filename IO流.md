@@ -10,6 +10,11 @@
 流向|输入流|输出流
 功能|节点流|处理流
 
+
+流与流之间的转换关系：
+
+![转换](http://7xj2yt.com1.z0.glb.clouddn.com/java_IO流.png)
+
 ###IO流图
 
 流名称|字节输入|字符输出|字符输入|字符输出
@@ -27,7 +32,7 @@ System| System.in|System.out|-|-
 
 ----
 ###IO流类思维导图
-![IO流类思维导图](C:\Users\wswenyue\Desktop\IO.bmp)
+![IO流类思维导图](http://7xj2yt.com1.z0.glb.clouddn.com/java_IO.bmp)
 
 -----
 
