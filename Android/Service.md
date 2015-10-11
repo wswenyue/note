@@ -286,7 +286,7 @@ interface IRemoteService{
 }
 ```
 
-**2. 在Service组件的onBind()方法中，返回aidl接口的Stub对象 **
+**2.在Service组件的onBind()方法中，返回aidl接口的Stub对象**
 示例：
 
 ```java							
@@ -310,7 +310,6 @@ public class RemoteSerice extends Service {
 	public IBinder onBind(Intent intent) {
 		return stub;//2.2 返回aidl接口的Stub对象
 	}
-
 }	
 	
 ```
