@@ -270,44 +270,49 @@ Activity端调用下载服务【广播接收之类省略】：
 
 ###使用方法及步骤：
 #### 服务端
+
 **1. 声明.aidl文件，在此文件中声明进程间的通信接口（类似于Binder子类的作用）**
 
 示例：
 
-	package com.wenyue.aidl;
-	
-	interface IRemoteService{
-	
-		void print(String msg);
-		
-		String getName();
-	}
+```java
+package com.wenyue.aidl;
 
-**2. 在Service组件的onBind()方法中，返回aidl接口的Stub对象 **
-示例：
-								
-	public class RemoteSerice extends Service {
+interface IRemoteService{
+
+	void print(String msg);
 	
-		//2.1 实例化.aidl接口的Stub对象
-		private IRemoteService.Stub stub=new IRemoteService.Stub() {
-			
-			@Override
-			public void print(String msg) throws RemoteException {
-				Log.i("debug", "--RemoteSerice---"+msg);
-			}
-			
-			@Override
-			public String getName() throws RemoteException {
-				return "RemoteSerice";
-			}
-		};
+	String getName();
+}
+```
+
+**2.在Service组件的onBind()方法中，返回aidl接口的Stub对象**
+示例：
+
+```java							
+public class RemoteSerice extends Service {
+
+	//2.1 实例化.aidl接口的Stub对象
+	private IRemoteService.Stub stub=new IRemoteService.Stub() {
 		
 		@Override
-		public IBinder onBind(Intent intent) {
-			return stub;//2.2 返回aidl接口的Stub对象
+		public void print(String msg) throws RemoteException {
+			Log.i("debug", "--RemoteSerice---"+msg);
 		}
+		
+		@Override
+		public String getName() throws RemoteException {
+			return "RemoteSerice";
+		}
+	};
 	
-	}		
+	@Override
+	public IBinder onBind(Intent intent) {
+		return stub;//2.2 返回aidl接口的Stub对象
+	}
+}	
+	
+```
 
 **3. 注册Service组件是，必须要提供一个启动或绑定此组件的Action**
 
