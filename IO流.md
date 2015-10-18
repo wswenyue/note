@@ -17,7 +17,7 @@
 
 ###IO流图
 
-流名称|字节输入|字符输出|字符输入|字符输出
+流名称|字节输入|字节输出|字符输入|字符输出
 ---|---|----|----|----
 4大基类 |InputStream |OutputStream|Reader|Writer
 **文件流**| FileInputStream| FileOutputStream|FileReader| FileWriter
